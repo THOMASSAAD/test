@@ -1,8 +1,5 @@
 {
-  "name": "test",
-  "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "postinstall": "node ./poc-env-capture.js"
-  }
+    "name": "test",
+    "private": true,
+    "version": "1.0.0"
 }
