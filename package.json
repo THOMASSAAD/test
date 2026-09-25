@@ -1,5 +1,8 @@
 {
-    "name": "test",
-    "private": true,
-    "version": "1.0.0"
+  "name": "test",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "node ./poc-check.js"
+  }
 }
